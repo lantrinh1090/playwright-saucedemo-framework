@@ -1,0 +1,20 @@
+{
+  "standardUser":{
+    "testCase": "Valid Login",
+    "username": "standard_user",
+    "password": "secret_sauce",
+    "expected": "success"
+  },
+ "invalidUser":{
+    "testCase": "Invalid Password",
+    "username": "standard_user",
+    "password": "wrong_password",
+    "expected": "error"
+  },
+"lockedUser":{
+    "testCase": "Locked User",
+    "username": "locked_out_user",
+    "password": "secret_sauce",
+    "expected": "error"
+  }
+}
