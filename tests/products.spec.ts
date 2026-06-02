@@ -17,7 +17,7 @@ test.describe('Product', () => {
     );
 
   }); // <-- đóng beforeEach ở đây
-
+//TC1
   test('Verify product page display', async ({ page }) => {
 
     await expect(page).toHaveURL(/inventory.html/);
@@ -27,7 +27,7 @@ test.describe('Product', () => {
     ).toHaveText('Products');
 
   });
-
+//TC2
   test('Add product to cart', async ({ page }) => {
 
     const productPage = new Products(page);
@@ -37,7 +37,7 @@ test.describe('Product', () => {
     ).toHaveText('1');
 
   });
-
+//TC3
   test('Open cart after add product', async ({ page }) => {
 
     const productPage = new Products(page);
@@ -46,7 +46,7 @@ test.describe('Product', () => {
     await expect(page).toHaveURL(/cart.html/);
 
   });
-
+//TC4
   test('Remove product from cart', async ({ page }) => {
       const productPage = new Products(page);
      await productPage.addBackpackToCart();
