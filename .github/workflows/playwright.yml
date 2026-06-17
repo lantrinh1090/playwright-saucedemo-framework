@@ -9,6 +9,18 @@ on:
     branches:
       - main
 
+  workflow_dispatch:
+    inputs:
+      environment:
+        description: 'Environment'
+        required: true
+        default: 'qa'
+        type: choice
+        options:
+          - dev
+          - qa
+          - uat
+
 jobs:
   playwright-test:
 
@@ -29,9 +41,10 @@ jobs:
 
       - name: Install Playwright Browsers
         run: npx playwright install --with-deps
-
-      - name: Run Tests
+      - name: Run Playwright tests
         run: npx playwright test
+        env:
+          ENV: ${{ github.event.inputs.environment }}
 
       - name: Upload HTML Report
         if: always()
